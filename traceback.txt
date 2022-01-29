@@ -1,28 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 40, in script
-    show layer master at heartbeat
-  File "game/script.rpy", line 40, in <module>
-    show layer master at heartbeat
-NameError: name 'heartbeat' is not defined
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 40, in script
-    show layer master at heartbeat
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 1232, in execute
-    at_list = [ renpy.python.py_eval(i) for i in self.at_list ]
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 40, in <module>
-    show layer master at heartbeat
-NameError: name 'heartbeat' is not defined
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/loadsave.py", line 394, in save
+    roots = renpy.game.log.freeze(None)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 2142, in freeze
+    self.complete(False)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 1726, in complete
+    self.current.stores[name], self.current.delta_ebc[name] = sd.get_changes(begin)
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 The Revelation of Ron 1.0
-Thu Jan 27 15:45:54 2022
+Sat Jan 29 14:03:20 2022

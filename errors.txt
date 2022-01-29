@@ -2,11 +2,11 @@
 errors listed below, and try again.
 
 
-The label choice1_done is defined twice, at File "game/script.rpy", line 202:
-    label choice1_done:
-and File "game/script.rpy", line 261:
-    label choice1_done:
+The label choices_done is defined twice, at File "game/script.rpy", line 66:
+    label choices_done:
+and File "game/script.rpy", line 312:
+    label choices_done:
 
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Fri Jan 28 10:58:52 2022
+Sat Jan 29 14:04:08 2022

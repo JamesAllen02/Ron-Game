@@ -16,13 +16,16 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene small_apartment_kitchen_night
-
+    scene ron_room:
+            zoom 1.65
+    
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
     show ron guy
+
+
 
     # These display lines of dialogue.
 
@@ -263,8 +266,6 @@ label start:
     r   "or whatever"
     r   "What are you by the way?"
 
-
-
     jump choice5_done
 
     label choice5_done:
@@ -287,7 +288,8 @@ label start:
         $ menu_flag = True
 
         python:
-            playerGender = "girl"
+            playerGender = "Female"
+        r "Oh, so you're a girl."
 
         jump choices_done6
 
@@ -296,7 +298,8 @@ label start:
         $ menu_flag = False
 
         python:
-            playerGender = "boy"
+            playerGender = "Male"
+        r "Oh, so you're a guy."
 
         jump choices_done6
 
@@ -305,12 +308,189 @@ label start:
         $ menu_flag = False
 
         python:
-            playerGender = "Alien"
+            playerGender = "Neither"
+
+        g "I am God. Such a being does not posess primitive labels like boy or girl"
+        r "Ahh shit, sorry. Shouldn't have assumed that."
 
         jump choices_done6
 
     label choices_done6:
         
-        r "Oh, so you're a [playerGender]"
+
+        r   "Nice!" 
+        r   "Ahh shit!" 
+        r   "I cant belive I'm the Mesiah, man!!"
+        r   "It's so dope!"
+        r   "But I dont understand!"
+        r   "And am I your son or something?"
+        r   "Is that a thing?"
+        
+        menu:
+
+            "Yeah, sure! Hi son!":
+                jump choice7_one
+
+            "No, you're not!":
+                jump choice7_two
+
+    label choice7_one:
+
+        $ menu_flag = True
+
+        r   "Yeeeahhh!" 
+        r   "I knew it." 
+        r   "My dad is a piece of shit anyways."
+
+
+
+    jump choice7_done
+
+    label choice7_two:
+
+        $ menu_flag = False
+        
+        r   "Yeah right!" 
+        r   "Or else I wouldnt be the Mesiah." 
+        r   "This is probably a test! "
+        r   "You want to see if I truly belive"
+        r   "and I do!"
+        r   "I belive I'm your son!"
+
+
+
+    "Ron lights a cigarette"
+
+    r  "You got light?"
+
+    "Player may light the cigarette by clicking on it"
+
+    r  "Woaaaaaahhhh, nice!"
+    r  "Best God ever!!"
+
+    r  "But anyways"
+    r  "is there anything you need me to do?"
+    r  "Any tasks at all?"
+
+    g  "Yeah, i got a task for you!"
+
+    r  "Nice! What?"
+
+
+    menu:
+
+        "Tell your mother you love her!":
+            jump choice8_one
+
+        "Rob a store!":
+            jump choice8_two
+
+        "Kill 10 innocent perople in my name!":
+            jump choice8_three
+                
+                
+
+    label choice8_one:
+
+        $ menu_flag = True
+
+        r   "You tell her!" 
+        r   "Shes dead!" 
+        r   "But since you're here"
+        r   "She must be in paredise!" 
+        r   "Can't wait to see her again!"
+
+
+    jump choice8_done
+
+    label choice8_two:
+
+        $ menu_flag = False
+
+        r   "Sure! Cool! Be right back" 
+
+        "Ron walks out of the room"
+
+        jump choice10_done
+
+    label choice8_three:
+
+        $ menu_flag = False
+
+        r   "Sure! Cool! Be right back" 
+
+        "Ron walks out of the room"
+
+        jump choice10_done
+
+    label choice8_done:
+
+        menu:
+
+            "Rob a store!":
+                jump choice9_one
+
+            "Kill 10 innocent perople in my name!":
+                jump choice9_two
+                
+
+    label choice9_one:
+
+        $ menu_flag = True
+
+        r   "Sure! Cool! Be right back" 
+
+        "Ron walks out of the room"
+
+    jump choice9_done
+    
+    label choice9_two:
+
+        $ menu_flag = False
+
+        r   "Sure! Cool! Be right back" 
+
+        "Ron walks out of the room"
+
+        jump choice9_done
+
+    label choice10_done:
+    label choice9_done:
+
+        "You see the clock on the wall pass some hours"
+        "Ron opens the door"
+        "He is covered in blood"
+
+        r   "Motherfuckingshitfatherfuckkedinntheanus" 
+        r   "I killed them!" 
+        r   "I killed them all..."
+        r   "And it was AAWESOME!"
+        r   "HAHA!"
+        r   "I told them that god had sent me"
+        r   "and that he was my father!"
+
+        r   "This one woman, had a baby in her arms" 
+        r   "so i was like" 
+        r   "\"naaah, i can't kill her, she has a baby!\""
+        r   "But then"
+        r   "I remembered that you can just explain everything to them in heaven!"
+        r   "They are probably laying on your lap right now and cudddeling with the clouds."
+        r   "HAHA!"
+
+        r   "But all this killing is making me tired." 
+        r   "Lets do some more of this Mesiah thing tomorrow!" 
+        r   "I think im really good at it!"
+
+        "Ron goes to bed and lays down"
+
+        r   "Ah, fuck."
+        r   "I forgot to turn of the lights!"
+        r   "Yo God!"
+        r   "Do it!"
+        r   "Turn it off!"
+
+        "player has to click on the light switch to proceed to the next day"
+
+        "Day ONE done"
 
 return

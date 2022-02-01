@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label choices_done is defined twice, at File "game/script.rpy", line 66:
-    label choices_done:
-and File "game/script.rpy", line 312:
-    label choices_done:
-
+File "game/script.rpy", line 26: expected statement.
+    zoom 2.0
+          ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Jan 29 14:04:08 2022
+Tue Feb  1 15:02:00 2022

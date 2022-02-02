@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -25,28 +25,35 @@ label start:
 
     show ron guy
 
+    python:
+        size = ["obese", "chunky", "tubby", "normal", "anoreksia", "thin", "muscular"]
 
 
     # These display lines of dialogue.
 
+    "You see a dark room. In the corner, there's a [size[1]] shadow sitting in the corner on a chair."
+    "Ron is sitting by his desk. He is currently playing League of Legends."
+
+    "Choose dialogue"
+
     menu:
 
-        "Good day Ron!":
+        "Hello, Ron.":
             jump choice1_1
 
-        "Hi Ron!":
+        "":
             jump choice1_2
 
-        "What the fuck is up Ron?":
+        "Hey, could you tell me what's going on?":
             jump choice1_3
-
 
 
     label choice1_1:
 
         $ menu_flag = True
 
-        r "What the fuck?"
+        "Ron stops playing. He wasn't wearing a headset and is wondering where the sound came from."
+        r "Hello? Who said that?"
 
         jump choices_done
 
@@ -54,7 +61,8 @@ label start:
 
         $ menu_flag = False
 
-        r "What the fuck?"
+        "Ron stops playing. He wasn't wearing a headset and is wondering where the sound came from."
+        r ""
 
         jump choices_done
 
@@ -62,22 +70,15 @@ label start:
 
         $ menu_flag = False
 
-        r "What the fuck?"
+        "Ron stops playing. He wasn't wearing a headset and is wondering where the sound came from."
+        "He looks around, confused, trying to "
+        r "Umm, hello? "
 
         jump choices_done
 
     label choices_done:
 
-        "Ron walks over to the door and opens it."
-
-        r "Hello?"
-
-        g "RON!!"
-
-        r "OUAAAAA, shut up! Am I high? Am I dreaming?"
-
-        r "If I'm dreaming, I'm probably gonna wake up if I cut my arm off."
-        r "Haha motherfuckers!"
+        ""
 
 
 
@@ -88,10 +89,10 @@ label start:
 
     menu:
 
-        "Haha! Do it you pussy!":
+        "":
             jump choice2_yes
 
-        "No! Don't do it! This is not a dream!":
+        "":
             jump choice2_no
 
     label choice2_yes:
@@ -100,15 +101,7 @@ label start:
 
         #"Ron kutter av seg armen og Begynner å skrike som en galning. Men spilleren får muligheten til å klikke på armen hans med musepilen så den regenererer."
 
-        "Ron cuts of his arm."
-
-        "He starts to scream like a lunatic."
-
-        "Click on his arm to regenerate it.."
-
-        "OR"
-
-        "Don't"
+        ""
 
 
         jump choice2_done
@@ -117,33 +110,27 @@ label start:
 
         $ menu_flag = False
 
-        "Ron puts the knife away, but is still in shock."
+        ""
 
         jump choice2_done
 
     label choice2_done:
 
-    r "This can't be! Who are you? Am I crazy?"
+    r ""
 
     menu:
 
-        "Yeah, you fucking lunatic!":
+        "":
             jump choice3_yes
 
-        "No. I am god!":
+        "":
             jump choice3_no
 
     label choice3_yes:
 
         $ menu_flag = True
 
-    r   "I knew it! I knew I was loosing my mind! HAHA!"
-    r   "No, wait.."
-    r   "Crazy people doesn't know they are crazy do they?"
-    r   "I've never heard of anybody sayin' “The voice in my head is telling me I am crazy!"
-    r   "And if I knew I was crazy, I wouldn't be crazy!"
-    r   "But who are you, then?"
-    r   "You must be... you are God!"
+    r   ""
 
     jump choice3_done
 
@@ -151,23 +138,14 @@ label start:
 
         $ menu_flag = False
 
-    r   "I knew it!"
-    r   "Actually, I didnt."
-    r   "But..."
-    r   "Now I know."
-    r   "You are fucking God!"
-    r   "Sorry..."
-    r   "No more swearing."
-    r   "Fuck."
+    r   ""
 
     jump choice3_done
 
     label choice3_done:
 
 
-    "Ron cheers."
-
-    r "But does that mean... am I the messiah? Am I the motherfucking new messiah of the 21st century?"
+    ""
 
         # ... the game continues here.
 
@@ -179,24 +157,17 @@ label start:
 
     menu:
 
-        "Ehm, yeah! Sure, The messiah! Fuck yeah!":
+        "":
             jump choice4_yes
 
-        "No, you are just Ron!":
+        "":
             jump choice4_no
 
     label choice4_yes:
 
         $ menu_flag = True
 
-    r   "Fuck yeah!"
-    r   "I'm gonna turn so much water into wine!"
-    r   "I'm gonna run on the fucking water!"
-    r   "And proooobably"
-    r   "lose my virginity!"
-    r   "No more porn for Ron!"
-    r   "HAHA!"
-    r   "But let's not get too hasty."
+    r   ""
 
     jump choice4_done
 
@@ -204,48 +175,31 @@ label start:
 
         $ menu_flag = False
 
-    r   "Thats exactly what God would say to the messiah!"
-    r   "“Blah blah, first and foremost you are a human, blah blah.”"
-    r   "Yeeess, dude!"
+    r   ""
 
 
     jump choice4_done
 
     label choice4_done:
 
-    "Ron suddenly stops and starts to think out loud."
-    r   "What does a Messiah do, exactly?"
-    r   "Do I have to get nailed to wood and get tortured and shit? "
-    r   "Because I'm not really feeling all of that, you know!"
-    r   "But I'm suuper down with all of that magic and shit!"
-    r   "By the way.."
-    r   "My mom told me not to trust strangers and shit,"
-    r   "and you know.."
-    r   "I’ve never really been a praying type of guy"
-    r   "So I’ve never really spoken to you."
-    r   "So I was just wondering if you could give me some type of sign."
-    r   "Just so I know that I'm not crazy and stuff."
+    ""
 
 
 
 
     menu:
 
-        "Destroy a vase":
+        "":
             jump choice5_vase
 
-        "Kill the dog":
+        "":
             jump choice5_dog
 
     label choice5_vase:
 
         $ menu_flag = True
 
-    r   "What the fuck, man?"
-    r   "Thats my favorite vase!"
-    r   "Yeah, yeah"
-    r   "I guess you’re real anyways."
-    r   "By the way, are you a girl or a boy or something like that?"
+    r   ""
 
 
     jump choice5_done
@@ -254,17 +208,7 @@ label start:
 
         $ menu_flag = False
 
-    r   "Whoooahh"
-    r   "Cool!"
-    r   "Haha!"
-    r   "You killed my dog, man!"
-    r   "Good for him!"
-    r   "Now he’s probably up in heaven with you,"
-    r   "sitting on your lap or some shit!"
-    r   "You’re a nice guy, God"
-    r   "Or girl"
-    r   "or whatever"
-    r   "What are you by the way?"
+    r   ""
 
     jump choice5_done
 
@@ -272,13 +216,13 @@ label start:
 
     menu:
 
-        "Are you a gurrrrrl?":
+        "Female":
             jump choice6_1
 
-        "Are you a boiiiii?":
+        "Male":
             jump choice6_2
 
-        "Are you something else?":
+        "Neither":
             jump choice6_3
 
 
@@ -289,7 +233,7 @@ label start:
 
         python:
             playerGender = "Female"
-        r "Oh, so you're a girl."
+        r ""
 
         jump choices_done6
 
@@ -299,7 +243,7 @@ label start:
 
         python:
             playerGender = "Male"
-        r "Oh, so you're a guy."
+        r ""
 
         jump choices_done6
 
@@ -310,78 +254,61 @@ label start:
         python:
             playerGender = "Neither"
 
-        g "I am God. Such a being does not posess primitive labels like boy or girl"
-        r "Ahh shit, sorry. Shouldn't have assumed that."
+        g ""
+        r ""
 
         jump choices_done6
 
     label choices_done6:
 
 
-        r   "Nice!"
-        r   "Ahh shit!"
-        r   "I cant belive I'm the Mesiah, man!!"
-        r   "It's so dope!"
-        r   "But I dont understand!"
-        r   "And am I your son or something?"
-        r   "Is that a thing?"
+        r   ""
 
         menu:
 
-            "Yeah, sure! Hi son!":
+            "":
                 jump choice7_one
 
-            "No, you're not!":
+            "":
                 jump choice7_two
 
     label choice7_one:
 
         $ menu_flag = True
 
-        r   "Yeeeahhh!"
-        r   "I knew it."
-        r   "My dad is a piece of shit anyways."
+        r   ""
+        r   ""
+        r   ""
+
+
+
+    jump choice7_done
 
     label choice7_two:
 
         $ menu_flag = False
 
-        r   "Yeah right!"
-        r   "Or else I wouldnt be the Mesiah."
-        r   "This is probably a test! "
-        r   "You want to see if I truly belive"
-        r   "and I do!"
-        r   "I belive I'm your son!"
+        r   ""
+        r   ""
+        r   ""
+        r   ""
+        r   ""
+        r   ""
 
 
 
-    "Ron lights a cigarette"
-
-    r  "You got light?"
-
-    "Player may light the cigarette by clicking on it"
-
-    r  "Woaaaaaahhhh, nice!"
-    r  "Best God ever!!"
-
-    r  "But anyways"
-    r  "is there anything you need me to do?"
-    r  "Any tasks at all?"
-
-    g  "Yeah, i got a task for you!"
-
-    r  "Nice! What?"
+    ""
 
 
     menu:
 
-        "Tell your mother you love her!":
+        "":
             jump choice8_one
 
-        "Rob a store!":
+        "":
             jump choice8_two
 
-        "Kill 10 innocent perople in my name!":
+        "":
             jump choice8_three
 
 
@@ -390,11 +317,7 @@ label start:
 
         $ menu_flag = True
 
-        r   "You tell her!"
-        r   "She's dead!"
-        r   "But since you're here"
-        r   "She must be in paradise!"
-        r   "Can't wait to see her again!"
+        r   ""
 
 
     jump choice8_done
@@ -403,9 +326,9 @@ label start:
 
         $ menu_flag = False
 
-        r   "Sure! Cool! Be right back"
+        r   ""
 
-        "Ron walks out of the room"
+        ""
 
         jump choice10_done
 
@@ -413,9 +336,9 @@ label start:
 
         $ menu_flag = False
 
-        r   "Sure! Cool! Be right back"
+        r   ""
 
-        "Ron walks out of the room"
+        ""
 
         jump choice10_done
 
@@ -423,10 +346,10 @@ label start:
 
         menu:
 
-            "Rob a store!":
+            "":
                 jump choice9_one
 
-            "Kill 10 innocent perople in my name!":
+            "":
                 jump choice9_two
 
 
@@ -434,9 +357,9 @@ label start:
 
         $ menu_flag = True
 
-        r   "Sure! Cool! Be right back"
+        r   ""
 
-        "Ron walks out of the room"
+        ""
 
     jump choice9_done
 
@@ -444,49 +367,15 @@ label start:
 
         $ menu_flag = False
 
-        r   "Sure! Cool! Be right back"
+        r   ""
 
-        "Ron walks out of the room"
+        ""
 
         jump choice9_done
 
     label choice10_done:
     label choice9_done:
 
-        "You see the clock on the wall pass some hours"
-        "Ron opens the door"
-        "He is covered in blood"
-
-        r   "Motherfuckingshitfatherfuckkedinntheanus"
-        r   "I killed them!"
-        r   "I killed them all..."
-        r   "And it was AAWESOME!"
-        r   "HAHA!"
-        r   "I told them that god had sent me"
-        r   "and that he was my father!"
-
-        r   "This one woman, had a baby in her arms"
-        r   "so i was like"
-        r   "\"naaah, i can't kill her, she has a baby!\""
-        r   "But then"
-        r   "I remembered that you can just explain everything to them in heaven!"
-        r   "They are probably laying on your lap right now and cudddeling with the clouds."
-        r   "HAHA!"
-
-        r   "But all this killing is making me tired."
-        r   "Lets do some more of this Mesiah thing tomorrow!"
-        r   "I think im really good at it!"
-
-        "Ron goes to bed and lays down"
-
-        r   "Ah, fuck."
-        r   "I forgot to turn of the lights!"
-        r   "Yo God!"
-        r   "Do it!"
-        r   "Turn it off!"
-
-        "player has to click on the light switch to proceed to the next day"
-
-        "Day ONE done"
+        ""
 
 return

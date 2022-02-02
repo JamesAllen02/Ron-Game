@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -16,17 +16,26 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene ron_room:
-            zoom 1.65
-
+    scene ron room:
+        zoom 0.65
+            
+    
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show ron guy
+    
 
     python:
         size = ["obese", "chunky", "tubby", "normal", "anoreksia", "thin", "muscular"]
+
+    python:
+        name = renpy.input("What is your name? \n", length=32)
+        name = name.strip()
+    
+        if not name:
+            name = "Sebastian"
+
 
 
     # These display lines of dialogue.
@@ -34,65 +43,67 @@ label start:
     "You see a dark room. In the corner, there's a [size[1]] shadow sitting in the corner on a chair."
     "Ron is sitting by his desk. He is currently playing League of Legends."
 
-    "Choose dialogue"
+    
+    menu choice0:
 
-    menu:
-
+        "Choose dialogue"
         "Hello, Ron.":
             jump choice1_1
 
-        "":
+        "Say nothing.":
             jump choice1_2
 
         "Hey, could you tell me what's going on?":
             jump choice1_3
-
+                
 
     label choice1_1:
 
         $ menu_flag = True
 
-        "Ron stops playing. He wasn't wearing a headset and is wondering where the sound came from."
+        "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from." 
+
+        
         r "Hello? Who said that?"
 
         jump choices_done
 
     label choice1_2:
 
-        $ menu_flag = False
+        "Ron continues to play his game."
 
-        "Ron stops playing. He wasn't wearing a headset and is wondering where the sound came from."
-        r ""
+        jump choice0
 
-        jump choices_done
+
 
     label choice1_3:
 
         $ menu_flag = False
 
-        "Ron stops playing. He wasn't wearing a headset and is wondering where the sound came from."
-        "He looks around, confused, trying to "
-        r "Umm, hello? "
+        "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from."
+        "He looks around, confused, trying to locate the source of the sound."
+        r "Umm, hello! Did someone say something?"
 
         jump choices_done
 
     label choices_done:
 
-        ""
+        "Ron stands up."
 
+        show ron body:
+            zoom .1
+            xalign 0.75
+            yalign 0.3
 
-
-
-
-
+        r "Seriously, who said that? Come out!"
 
 
     menu:
 
-        "":
+        "It was me.":
             jump choice2_yes
 
-        "":
+        "Say nothing":
             jump choice2_no
 
     label choice2_yes:
@@ -100,9 +111,38 @@ label start:
         $ menu_flag = True
 
         #"Ron kutter av seg armen og Begynner å skrike som en galning. Men spilleren får muligheten til å klikke på armen hans med musepilen så den regenererer."
+        
+        r "Who are you? And where are you?"
 
-        ""
+        menu:
 
+            "[name]":
+                jump choice2_11
+            "God":
+                jump choice2_12
+            "Your worst nightmare.":
+                jump choice2_13
+
+        label choice2_11:
+            r "Uh-- ok. Why can't I see you? And why can I hear you in my head?! Are you some kind of telepathic being?"
+            r "No, that's not real... I must be tired. I should probably go to bed early today."
+            jump choice2_done
+
+        label choice2_12:
+            r "What the fuck? No, that can't be real. I must've stayed up too long. I should probably rest for a bit. There's no one there."
+            jump choice2_done
+        label choice2_13:
+            r "That's really fucking creepy. Seriously, come out! I'm armed!"
+            "Ron looks desperately around the room, clearly scared and shaken up. He's obviously not wielding any form of weapon."
+            scene ron room dark:
+                zoom 1.65
+            g "Why do you lie to me, Ron?"
+            r "What? How did you know..?"
+            menu:
+                "{sc=5}{font=FOT-PopJoyStd-B.otf}Punish Ron for his {font=FOT-PopJoyStd-B.otf}disobedience.{/sc}":
+                    "Ron died."
+                    "Game over."
+            return
 
         jump choice2_done
 
@@ -110,27 +150,50 @@ label start:
 
         $ menu_flag = False
 
-        ""
+        r "I guess it was nothing... I could've sworn someone said something. Maybe I'm going crazy."
+        "Ron puts his headset on and goes back to playing his game."
+
+        menu quietchoice1:
+
+            "Remain quiet":
+                jump quietchoice1
+            "Say something":
+                jump choice2_21
+            "Turn the light on":
+                jump choice2_22
+
+
+
 
         jump choice2_done
 
     label choice2_done:
 
-    r ""
+    "Ron lies down"
+    r "Ok, ok, it's probably nothing. I'm just being tired, that's all"
 
     menu:
 
-        "":
+        "Mess with ron":
             jump choice3_yes
 
-        "":
+        "Talk to ron":
             jump choice3_no
 
     label choice3_yes:
 
         $ menu_flag = True
 
-    r   ""
+        menu:
+            "What do you do?"
+            "Destroy his vase":
+                "Ron sits up. He stares frightened towards the now broken vase."
+                r "{i}fuck, what was that{/i}"
+                #r "What the fuck? I wasn't anywhere near that."
+            "Change his \"art\"":
+                "temp"
+                #block of code to run
+            
 
     jump choice3_done
 
@@ -138,7 +201,30 @@ label start:
 
         $ menu_flag = False
 
-    r   ""
+    g "Hey, Ron. Ignoring me won't work. I am real."
+    r "No, you're not. You're just a figment of my wild imagination!"
+    g "How can you be so certain about that?"
+    r "I mean.. it just doesn't make any sense. That some kind of telepathic or omnipotent creature tries to contact me."
+    r "And now I'm talking to myself... I need to sleep."
+    
+    menu:
+        "Ron doesn't believe you"
+        "Convince him by doing something to his room.":
+            jump choice3_yes
+        "Keep talking to him.":
+            menu:
+                "I guess that's true.. still, I believe I am real. How could I convince you?":
+                    ""
+                    #block of code to run
+                "Hey, Ron? Are you asleep?":
+                    "Ron is pretending he can't hear you."
+                    g "Ron?"
+                    g "Hey, Roooon! Why are you ignoring me?"
+                    r "Leave me alone!"
+                    #block of code to run
+                
+
+
 
     jump choice3_done
 
@@ -224,8 +310,8 @@ label start:
 
         "Neither":
             jump choice6_3
-
-
+                
+                
 
     label choice6_1:
 
@@ -260,10 +346,10 @@ label start:
         jump choices_done6
 
     label choices_done6:
+        
 
-
-        r   ""
-
+        r   "" 
+        
         menu:
 
             "":
@@ -276,8 +362,8 @@ label start:
 
         $ menu_flag = True
 
-        r   ""
-        r   ""
+        r   "" 
+        r   "" 
         r   ""
 
 
@@ -287,9 +373,9 @@ label start:
     label choice7_two:
 
         $ menu_flag = False
-
-        r   ""
-        r   ""
+        
+        r   "" 
+        r   "" 
         r   ""
         r   ""
         r   ""
@@ -310,14 +396,14 @@ label start:
 
         "":
             jump choice8_three
-
-
+                
+                
 
     label choice8_one:
 
         $ menu_flag = True
 
-        r   ""
+        r   "" 
 
 
     jump choice8_done
@@ -326,7 +412,7 @@ label start:
 
         $ menu_flag = False
 
-        r   ""
+        r   "" 
 
         ""
 
@@ -336,7 +422,7 @@ label start:
 
         $ menu_flag = False
 
-        r   ""
+        r   "" 
 
         ""
 
@@ -351,23 +437,23 @@ label start:
 
             "":
                 jump choice9_two
-
+                
 
     label choice9_one:
 
         $ menu_flag = True
 
-        r   ""
+        r   "" 
 
         ""
 
     jump choice9_done
-
+    
     label choice9_two:
 
         $ menu_flag = False
 
-        r   ""
+        r   "" 
 
         ""
 

@@ -18,7 +18,7 @@ label start:
 
     scene ron_room:
             zoom 1.65
-    
+
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
@@ -39,8 +39,8 @@ label start:
 
         "What the fuck is up Ron?":
             jump choice1_3
-                
-                
+
+
 
     label choice1_1:
 
@@ -67,7 +67,7 @@ label start:
         jump choices_done
 
     label choices_done:
-        
+
         "Ron walks over to the door and opens it."
 
         r "Hello?"
@@ -99,7 +99,7 @@ label start:
         $ menu_flag = True
 
         #"Ron kutter av seg armen og Begynner å skrike som en galning. Men spilleren får muligheten til å klikke på armen hans med musepilen så den regenererer."
-        
+
         "Ron cuts of his arm."
 
         "He starts to scream like a lunatic."
@@ -137,11 +137,11 @@ label start:
 
         $ menu_flag = True
 
-    r   "I knew it! I knew I was loosing my mind! HAHA!" 
-    r   "No, wait.." 
+    r   "I knew it! I knew I was loosing my mind! HAHA!"
+    r   "No, wait.."
     r   "Crazy people doesn't know they are crazy do they?"
-    r   "I've never heard of anybody sayin' “The voice in my head is telling me I am crazy!" 
-    r   "And if I knew I was crazy, I wouldn't be crazy!" 
+    r   "I've never heard of anybody sayin' “The voice in my head is telling me I am crazy!"
+    r   "And if I knew I was crazy, I wouldn't be crazy!"
     r   "But who are you, then?"
     r   "You must be... you are God!"
 
@@ -151,11 +151,11 @@ label start:
 
         $ menu_flag = False
 
-    r   "I knew it!" 
-    r   "Actually, I didnt." 
+    r   "I knew it!"
+    r   "Actually, I didnt."
     r   "But..."
-    r   "Now I know." 
-    r   "You are fucking God!" 
+    r   "Now I know."
+    r   "You are fucking God!"
     r   "Sorry..."
     r   "No more swearing."
     r   "Fuck."
@@ -176,7 +176,7 @@ label start:
 
 
 
- 
+
     menu:
 
         "Ehm, yeah! Sure, The messiah! Fuck yeah!":
@@ -189,10 +189,10 @@ label start:
 
         $ menu_flag = True
 
-    r   "Fuck yeah!" 
-    r   "I'm gonna turn so much water into wine!" 
+    r   "Fuck yeah!"
+    r   "I'm gonna turn so much water into wine!"
     r   "I'm gonna run on the fucking water!"
-    r   "And proooobably" 
+    r   "And proooobably"
     r   "lose my virginity!"
     r   "No more porn for Ron!"
     r   "HAHA!"
@@ -204,8 +204,8 @@ label start:
 
         $ menu_flag = False
 
-    r   "Thats exactly what God would say to the messiah!" 
-    r   "“Blah blah, first and foremost you are a human, blah blah.”" 
+    r   "Thats exactly what God would say to the messiah!"
+    r   "“Blah blah, first and foremost you are a human, blah blah.”"
     r   "Yeeess, dude!"
 
 
@@ -214,16 +214,16 @@ label start:
     label choice4_done:
 
     "Ron suddenly stops and starts to think out loud."
-    r   "What does a Messiah do, exactly?" 
-    r   "Do I have to get nailed to wood and get tortured and shit? " 
+    r   "What does a Messiah do, exactly?"
+    r   "Do I have to get nailed to wood and get tortured and shit? "
     r   "Because I'm not really feeling all of that, you know!"
-    r   "But I'm suuper down with all of that magic and shit!" 
-    r   "By the way.." 
+    r   "But I'm suuper down with all of that magic and shit!"
+    r   "By the way.."
     r   "My mom told me not to trust strangers and shit,"
     r   "and you know.."
     r   "I’ve never really been a praying type of guy"
-    r   "So I’ve never really spoken to you." 
-    r   "So I was just wondering if you could give me some type of sign." 
+    r   "So I’ve never really spoken to you."
+    r   "So I was just wondering if you could give me some type of sign."
     r   "Just so I know that I'm not crazy and stuff."
 
 
@@ -241,10 +241,10 @@ label start:
 
         $ menu_flag = True
 
-    r   "What the fuck, man?" 
-    r   "Thats my favorite vase!" 
+    r   "What the fuck, man?"
+    r   "Thats my favorite vase!"
     r   "Yeah, yeah"
-    r   "I guess you’re real anyways." 
+    r   "I guess you’re real anyways."
     r   "By the way, are you a girl or a boy or something like that?"
 
 
@@ -254,8 +254,8 @@ label start:
 
         $ menu_flag = False
 
-    r   "Whoooahh" 
-    r   "Cool!" 
+    r   "Whoooahh"
+    r   "Cool!"
     r   "Haha!"
     r   "You killed my dog, man!"
     r   "Good for him!"
@@ -280,8 +280,8 @@ label start:
 
         "Are you something else?":
             jump choice6_3
-                
-                
+
+
 
     label choice6_1:
 
@@ -316,16 +316,16 @@ label start:
         jump choices_done6
 
     label choices_done6:
-        
 
-        r   "Nice!" 
-        r   "Ahh shit!" 
+
+        r   "Nice!"
+        r   "Ahh shit!"
         r   "I cant belive I'm the Mesiah, man!!"
         r   "It's so dope!"
         r   "But I dont understand!"
         r   "And am I your son or something?"
         r   "Is that a thing?"
-        
+
         menu:
 
             "Yeah, sure! Hi son!":
@@ -338,20 +338,16 @@ label start:
 
         $ menu_flag = True
 
-        r   "Yeeeahhh!" 
-        r   "I knew it." 
+        r   "Yeeeahhh!"
+        r   "I knew it."
         r   "My dad is a piece of shit anyways."
-
-
-
-    jump choice7_done
 
     label choice7_two:
 
         $ menu_flag = False
-        
-        r   "Yeah right!" 
-        r   "Or else I wouldnt be the Mesiah." 
+
+        r   "Yeah right!"
+        r   "Or else I wouldnt be the Mesiah."
         r   "This is probably a test! "
         r   "You want to see if I truly belive"
         r   "and I do!"
@@ -387,17 +383,17 @@ label start:
 
         "Kill 10 innocent perople in my name!":
             jump choice8_three
-                
-                
+
+
 
     label choice8_one:
 
         $ menu_flag = True
 
-        r   "You tell her!" 
-        r   "Shes dead!" 
+        r   "You tell her!"
+        r   "She's dead!"
         r   "But since you're here"
-        r   "She must be in paredise!" 
+        r   "She must be in paradise!"
         r   "Can't wait to see her again!"
 
 
@@ -407,7 +403,7 @@ label start:
 
         $ menu_flag = False
 
-        r   "Sure! Cool! Be right back" 
+        r   "Sure! Cool! Be right back"
 
         "Ron walks out of the room"
 
@@ -417,7 +413,7 @@ label start:
 
         $ menu_flag = False
 
-        r   "Sure! Cool! Be right back" 
+        r   "Sure! Cool! Be right back"
 
         "Ron walks out of the room"
 
@@ -432,23 +428,23 @@ label start:
 
             "Kill 10 innocent perople in my name!":
                 jump choice9_two
-                
+
 
     label choice9_one:
 
         $ menu_flag = True
 
-        r   "Sure! Cool! Be right back" 
+        r   "Sure! Cool! Be right back"
 
         "Ron walks out of the room"
 
     jump choice9_done
-    
+
     label choice9_two:
 
         $ menu_flag = False
 
-        r   "Sure! Cool! Be right back" 
+        r   "Sure! Cool! Be right back"
 
         "Ron walks out of the room"
 
@@ -461,24 +457,24 @@ label start:
         "Ron opens the door"
         "He is covered in blood"
 
-        r   "Motherfuckingshitfatherfuckkedinntheanus" 
-        r   "I killed them!" 
+        r   "Motherfuckingshitfatherfuckkedinntheanus"
+        r   "I killed them!"
         r   "I killed them all..."
         r   "And it was AAWESOME!"
         r   "HAHA!"
         r   "I told them that god had sent me"
         r   "and that he was my father!"
 
-        r   "This one woman, had a baby in her arms" 
-        r   "so i was like" 
+        r   "This one woman, had a baby in her arms"
+        r   "so i was like"
         r   "\"naaah, i can't kill her, she has a baby!\""
         r   "But then"
         r   "I remembered that you can just explain everything to them in heaven!"
         r   "They are probably laying on your lap right now and cudddeling with the clouds."
         r   "HAHA!"
 
-        r   "But all this killing is making me tired." 
-        r   "Lets do some more of this Mesiah thing tomorrow!" 
+        r   "But all this killing is making me tired."
+        r   "Lets do some more of this Mesiah thing tomorrow!"
         r   "I think im really good at it!"
 
         "Ron goes to bed and lays down"

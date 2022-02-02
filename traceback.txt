@@ -1,22 +1,52 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 347, in script
-    jump choice7_done
-ScriptError: could not find label 'choice7_done'.
+  File "game/script.rpy", line 138, in script
+    menu:
+Exception: Text ended while the 'sc' text tag was still open.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 347, in script
-    jump choice7_done
-  File "C:\Users\haava\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 1757, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\haava\Downloads\renpy-7.4.11-sdk/renpy/script.py", line 918, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'choice7_done'.
+  File "game/script.rpy", line 138, in script
+    menu:
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 1688, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1060, in menu
+    rv = renpy.store.menu(new_items)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1296, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/screen.py", line 441, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 558, in visit_all
+    for d in self.visit():
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 1816, in visit
+    self.update()
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 1796, in update
+    tokens = self.apply_custom_tags(tokens)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 2345, in apply_custom_tags
+    raise Exception("Text ended while the '{}' text tag was still open.".format(tag))
+Exception: Text ended while the 'sc' text tag was still open.
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 The Revelation of Ron 1.0
-Wed Feb  2 08:47:15 2022
+Wed Feb  2 21:36:05 2022

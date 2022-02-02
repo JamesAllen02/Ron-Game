@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 26: expected statement.
-    zoom 2.0
+File "game/script.rpy", line 137: expected statement.
+    zoom 1.65
           ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Feb  1 15:02:00 2022
+Wed Feb  2 22:03:50 2022

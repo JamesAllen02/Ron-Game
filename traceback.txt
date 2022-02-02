@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 358, in script
+  File "game/script.rpy", line 347, in script
     jump choice7_done
 ScriptError: could not find label 'choice7_done'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 358, in script
+  File "game/script.rpy", line 347, in script
     jump choice7_done
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 1757, in execute
+  File "C:\Users\haava\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 1757, in execute
     rv = renpy.game.script.lookup(target)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/script.py", line 918, in lookup
+  File "C:\Users\haava\Downloads\renpy-7.4.11-sdk/renpy/script.py", line 918, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
 ScriptError: could not find label 'choice7_done'.
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 The Revelation of Ron 1.0
-Tue Feb  1 14:44:31 2022
+Wed Feb  2 08:47:15 2022

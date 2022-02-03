@@ -6,6 +6,20 @@
 define r = Character("Ron")
 define g = Character("You", color="#ffffff")
 
+image ron body dark = im.MatrixColor(
+    "ron body.png", 
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image ron body mad dark = im.MatrixColor(
+    "ron body mad.png", 
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image ron smile dark = im.MatrixColor(
+    "ron smile.png", 
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
 
 
 # The game starts here.
@@ -16,8 +30,8 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene ron room:
-        zoom 0.65
+    scene ron_room_dark:
+        zoom 0.67
             
     
     # This shows a character sprite. A placeholder is used, but you can
@@ -35,6 +49,9 @@ label start:
     
         if not name:
             name = "Sebastian"
+
+
+        g = Character(name, color="#ffffff")
 
 
 
@@ -90,10 +107,14 @@ label start:
 
         "Ron stands up."
 
-        show ron body:
-            zoom .1
-            xalign 0.75
-            yalign 0.3
+        show ron body dark:
+            xpos 0.4
+            ypos 0.2
+            zoom 0.35
+        with Dissolve(.3)
+            
+            
+
 
         r "Seriously, who said that? Come out!"
 
@@ -111,7 +132,11 @@ label start:
         $ menu_flag = True
 
         #"Ron kutter av seg armen og Begynner å skrike som en galning. Men spilleren får muligheten til å klikke på armen hans med musepilen så den regenererer."
-        
+        show ron body mad dark:
+            xpos 0.4
+            ypos 0.2
+            zoom 0.35
+
         r "Who are you? And where are you?"
 
         menu:
@@ -125,17 +150,56 @@ label start:
 
         label choice2_11:
             r "Uh-- ok. Why can't I see you? And why can I hear you in my head?! Are you some kind of telepathic being?"
+            show ron smile dark:
+                xpos 0.4
+                ypos 0.2
+                zoom 0.35
             r "No, that's not real... I must be tired. I should probably go to bed early today."
             jump choice2_done
 
         label choice2_12:
-            r "What the fuck? No, that can't be real. I must've stayed up too long. I should probably rest for a bit. There's no one there."
+            r "What the fuck? No, that can't be real. I must've stayed up too long. I should probably rest for a bit. There's no one here."
             jump choice2_done
         label choice2_13:
             r "That's really fucking creepy. Seriously, come out! I'm armed!"
             "Ron looks desperately around the room, clearly scared and shaken up. He's obviously not wielding any form of weapon."
-            scene ron room dark:
-                zoom 1.65
+            scene ron_room_dark:
+                zoom 0.67
+            show ron body dark:
+                xpos 0.4
+                ypos 0.2
+                zoom 0.35
+            pause 0.5
+            scene ron_room:
+                zoom 0.67
+            show ron body:
+                xpos 0.4
+                ypos 0.2
+                zoom 0.35
+            pause 0.5
+            scene ron_room_dark:
+                zoom 0.67
+            show ron body dark:
+                xpos 0.4
+                ypos 0.2
+                zoom 0.35
+            pause 0.5
+            scene ron_room:
+                zoom 0.67
+            show ron body:
+                xpos 0.4
+                ypos 0.2
+                zoom 0.35
+            pause 0.5
+            scene ron_room_dark:
+                zoom 0.67
+            show ron body dark:
+                xpos 0.4
+                ypos 0.2
+                zoom 0.35
+            
+
+            
             g "Why do you lie to me, Ron?"
             r "What? How did you know..?"
             menu:
@@ -168,9 +232,10 @@ label start:
         jump choice2_done
 
     label choice2_done:
-
+        hide ron smile dark
+        with dissolve(.5)
     "Ron lies down"
-    r "Ok, ok, it's probably nothing. I'm just being tired, that's all"
+    r "Ok, ok, it's probably nothing. I'm just tired, that's all."
 
     menu:
 
@@ -189,11 +254,19 @@ label start:
             "Destroy his vase":
                 "Ron sits up. He stares frightened towards the now broken vase."
                 r "{i}fuck, what was that{/i}"
-                #r "What the fuck? I wasn't anywhere near that."
+                #talk some more
+                jump choice3_done
             "Change his \"art\"":
-                "temp"
-                #block of code to run
-            
+                r "Ron sits up and stares frightened towards his poster."
+                "Ron whispers to himself"
+                r "{i}What the fuck? I must be getting delusional{/i}"
+                g "You're not delusional."
+                r "Yes.. of course I am. This doesn't make any sense!"
+                
+                #talk some more
+
+                jump choice3_done
+
 
     jump choice3_done
 
@@ -206,23 +279,53 @@ label start:
     g "How can you be so certain about that?"
     r "I mean.. it just doesn't make any sense. That some kind of telepathic or omnipotent creature tries to contact me."
     r "And now I'm talking to myself... I need to sleep."
-    
+
     menu:
         "Ron doesn't believe you"
         "Convince him by doing something to his room.":
             jump choice3_yes
         "Keep talking to him.":
-            menu:
-                "I guess that's true.. still, I believe I am real. How could I convince you?":
-                    ""
+            menu realChoice:
+                "But I believe I am real. How could I convince you?":
+                    r "Look, I don't know! Is there any way you can prove that you're real?"
+                    jump choice3_yes
                     #block of code to run
                 "Hey, Ron? Are you asleep?":
                     "Ron is pretending he can't hear you."
                     g "Ron?"
                     g "Hey, Roooon! Why are you ignoring me?"
-                    r "Leave me alone!"
-                    #block of code to run
-                
+                    r "Leave me alone! You're not real. Please.. just... be quiet."
+                    g "Again, if that's what you really believe, then why am I here?"
+                    r "What do you mean?"
+                    g "If I wasn't real, and just a part of your imagination, then you couldn't realize that, right?"
+                    r "I guess... but that means that if I believe in you, then you might not be real!"
+                    g "Perhaps, but now you've already proven to be in doubt of it. That must mean something."
+                    r "So you're saying that by not believing in you now, then you might be real?"
+                    g "Ehh, I guess. It's a bit difficult to follow."
+                    "Ron becomes quiet for a while, thinking to himself."
+                    "After some time, he sits up, and starts to talk."
+                    r "Actually, I completely forgot about this, but I used to have an imaginary friend when I was younger."
+                    r "That was when I was really young. I think their name was..."
+                    python:
+                        import os
+                        realName = os.environ.get('username')
+                    r "[realName]"
+                    r "Is... is that you?"
+                    menu:
+                        "Yes":
+                            r "I knew it. Fuck, and I started to believe you were real."
+                            "Ron went to sleep, ignoring anything that you might want to say."
+                            #Lys på
+                            "The next morning he wakes up, feeling more sane. He continues to play League of Legends, forgetting everything about you."
+                            #Fade til svart
+                            "Game Over."
+                            menu:
+                                "Start over":
+                                    jump choice0
+                                "Back to previous choice":
+                                    jump realChoice
+                                
+
 
 
 
@@ -230,13 +333,37 @@ label start:
 
     label choice3_done:
 
+    r "Ok... so you're real. You're really like a God."
+    r "Jesus, fuck. Sorry, I need to take this in for a second."
+    r "Fine, ok, you're real. You're God. You can do stuff."
+    r "Wait, so am I like the messiah, then? Why have you chosen me?"
 
-    ""
-
-        # ... the game continues here.
-
-
-
+    menu:
+        "Yes, you are the messiah":
+            r "Yes, I fucking knew it. So am I here to spread your message or something?"
+            r "You know what? I'm going to convince everyone that you're real!"
+            r "Is that what you want me to do?"
+            menu:
+                "What do you want Ron to do?"
+                "Spread the word of me. Tell everyone that I exist":
+                    r "Sure!"
+                    r "Umm, how do I do that?"
+                    menu:
+                        "With violence":
+                            "Ron's facial expression immideately changes. He stays quiet for a while."
+                            r "Ok. You got it."
+                            "Ron opens the door and leaves."
+                            "Some times passes."
+                            "It's now midnight. Ron enters, covered in blood."
+                        "With love":
+                            "Ron's face lights up."
+                            r "Alright. You got it!"
+                            
+                "No! Don't tell anyone that I exist.":
+                    "temp"
+                    # This branch can lead to a better life for Ron. He will try to better himself with your choices, as he tries to keep you secret
+        "No, I'm just here to check in":
+            r "Oh, I guess that makes more sense.. "
 
 
 

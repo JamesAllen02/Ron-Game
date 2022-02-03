@@ -1,52 +1,43 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 138, in script
-    menu:
-Exception: Text ended while the 'sc' text tag was still open.
+While processing the background property of style main_menu_frame:
+  File "renpy/common/00start.rpy", line 80, in _init_language
+    renpy.change_language(language)
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+Exception: An empty string cannot be used as a displayable.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 138, in script
-    menu:
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 1688, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1060, in menu
-    rv = renpy.store.menu(new_items)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1296, in display_menu
-    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/screen.py", line 441, in visit_all
-    self.child.visit_all(callback, seen=None)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 558, in visit_all
-    for d in self.visit():
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 1816, in visit
-    self.update()
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 1796, in update
-    tokens = self.apply_custom_tags(tokens)
-  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 2345, in apply_custom_tags
-    raise Exception("Text ended while the '{}' text tag was still open.".format(tag))
-Exception: Text ended while the 'sc' text tag was still open.
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/main.py", line 662, in main
+    run(restart)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/main.py", line 78, in run
+    renpy.translation.init_translation()
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/translation/__init__.py", line 561, in init_translation
+    renpy.store._init_language() # @UndefinedVariable
+  File "renpy/common/00start.rpy", line 80, in _init_language
+    renpy.change_language(language)
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/translation/__init__.py", line 650, in change_language
+    i()
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+  File "style.pyx", line 795, in renpy.style.rebuild
+  File "style.pyx", line 788, in renpy.style.build_styles
+  File "style.pyx", line 709, in renpy.style.build_style
+  File "style.pyx", line 706, in renpy.style.build_style
+  File "gen-static/style_functions.pyx", line 230, in style_functions.background_property
+  File "C:\Users\Andreas\Downloads\renpy-7.4.11-sdk/renpy/easy.py", line 65, in displayable_or_none
+    raise Exception("An empty string cannot be used as a displayable.")
+Exception: An empty string cannot be used as a displayable.
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
-The Revelation of Ron 1.0
-Wed Feb  2 21:36:05 2022
+ 
+Thu Feb  3 20:07:33 2022

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 137: expected statement.
-    zoom 1.65
-          ^
+File "game/script.rpy", line 354: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    r "Ok. You got it."
+    ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Feb  2 22:03:50 2022
+Thu Feb  3 19:57:06 2022

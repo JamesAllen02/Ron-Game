@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -18,13 +18,13 @@ label start:
 
     scene ron room:
         zoom 0.65
-            
-    
+
+
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    
+
 
     python:
         size = ["obese", "chunky", "tubby", "normal", "anoreksia", "thin", "muscular"]
@@ -32,7 +32,7 @@ label start:
     python:
         name = renpy.input("What is your name? \n", length=32)
         name = name.strip()
-    
+
         if not name:
             name = "Sebastian"
 
@@ -43,7 +43,7 @@ label start:
     "You see a dark room. In the corner, there's a [size[1]] shadow sitting in the corner on a chair."
     "Ron is sitting by his desk. He is currently playing League of Legends."
 
-    
+
     menu choice0:
 
         "Choose dialogue"
@@ -55,15 +55,15 @@ label start:
 
         "Hey, could you tell me what's going on?":
             jump choice1_3
-                
+
 
     label choice1_1:
 
         $ menu_flag = True
 
-        "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from." 
+        "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from."
 
-        
+
         r "Hello? Who said that?"
 
         jump choices_done
@@ -111,7 +111,7 @@ label start:
         $ menu_flag = True
 
         #"Ron kutter av seg armen og Begynner å skrike som en galning. Men spilleren får muligheten til å klikke på armen hans med musepilen så den regenererer."
-        
+
         r "Who are you? And where are you?"
 
         menu:
@@ -193,7 +193,7 @@ label start:
             "Change his \"art\"":
                 "temp"
                 #block of code to run
-            
+
 
     jump choice3_done
 
@@ -206,7 +206,7 @@ label start:
     g "How can you be so certain about that?"
     r "I mean.. it just doesn't make any sense. That some kind of telepathic or omnipotent creature tries to contact me."
     r "And now I'm talking to myself... I need to sleep."
-    
+
     menu:
         "Ron doesn't believe you"
         "Convince him by doing something to his room.":
@@ -222,7 +222,7 @@ label start:
                     g "Hey, Roooon! Why are you ignoring me?"
                     r "Leave me alone!"
                     #block of code to run
-                
+
 
 
 
@@ -310,8 +310,8 @@ label start:
 
         "Neither":
             jump choice6_3
-                
-                
+
+
 
     label choice6_1:
 
@@ -346,10 +346,10 @@ label start:
         jump choices_done6
 
     label choices_done6:
-        
 
-        r   "" 
-        
+
+        r   ""
+
         menu:
 
             "":
@@ -362,8 +362,8 @@ label start:
 
         $ menu_flag = True
 
-        r   "" 
-        r   "" 
+        r   ""
+        r   ""
         r   ""
 
 
@@ -373,9 +373,9 @@ label start:
     label choice7_two:
 
         $ menu_flag = False
-        
-        r   "" 
-        r   "" 
+
+        r   ""
+        r   ""
         r   ""
         r   ""
         r   ""
@@ -396,14 +396,14 @@ label start:
 
         "":
             jump choice8_three
-                
-                
+
+
 
     label choice8_one:
 
         $ menu_flag = True
 
-        r   "" 
+        r   ""
 
 
     jump choice8_done
@@ -412,7 +412,7 @@ label start:
 
         $ menu_flag = False
 
-        r   "" 
+        r   ""
 
         ""
 
@@ -422,7 +422,7 @@ label start:
 
         $ menu_flag = False
 
-        r   "" 
+        r   ""
 
         ""
 
@@ -437,23 +437,23 @@ label start:
 
             "":
                 jump choice9_two
-                
+
 
     label choice9_one:
 
         $ menu_flag = True
 
-        r   "" 
+        r   ""
 
         ""
 
     jump choice9_done
-    
+
     label choice9_two:
 
         $ menu_flag = False
 
-        r   "" 
+        r   ""
 
         ""
 

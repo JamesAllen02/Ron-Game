@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -7,17 +7,27 @@ define r = Character("Ron")
 define g = Character("You", color="#ffffff")
 
 image ron body dark = im.MatrixColor(
-    "ron body.png", 
+    "ron body.png",
     im.matrix.tint(0.45, 0.45, 0.75)
     *im.matrix.brightness(-0.07))
 
 image ron body mad dark = im.MatrixColor(
-    "ron body mad.png", 
+    "ron body mad.png",
     im.matrix.tint(0.45, 0.45, 0.75)
     *im.matrix.brightness(-0.07))
 
 image ron smile dark = im.MatrixColor(
-    "ron smile.png", 
+    "ron smile.png",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image ron shocked blue dark = im.MatrixColor(
+    "ron shocked blue.png",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image ron heart dark = im.MatrixColor(
+    "ron heart.png",
     im.matrix.tint(0.45, 0.45, 0.75)
     *im.matrix.brightness(-0.07))
 
@@ -30,76 +40,40 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-<<<<<<< HEAD
-    scene ron room:
-        zoom 0.65
-<<<<<<< HEAD
-
-
-=======
-            
-    
->>>>>>> main
-=======
     scene ron_room_dark:
         zoom 0.67
-            
-    
->>>>>>> main
+
+
+
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
-=======
-    
->>>>>>> main
+    stop music
+    play sound "audio/weeps.mp3"
 
     python:
         size = ["obese", "chunky", "tubby", "normal", "anoreksia", "thin", "muscular"]
 
+
     python:
         name = renpy.input("What is your name? \n", length=32)
         name = name.strip()
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
-=======
-    
->>>>>>> main
         if not name:
             name = "Sebastian"
 
-
-<<<<<<< HEAD
-=======
         g = Character(name, color="#ffffff")
 
 
->>>>>>> main
 
     # These display lines of dialogue.
 
     "You see a dark room. In the corner, there's a [size[1]] shadow sitting in the corner on a chair."
     "Ron is sitting by his desk. He is currently playing League of Legends."
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
-=======
-    
->>>>>>> main
     menu choice0:
 
         "Choose dialogue"
@@ -111,27 +85,15 @@ label start:
 
         "Hey, could you tell me what's going on?":
             jump choice1_3
-                
+
 
     label choice1_1:
 
         $ menu_flag = True
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from."
 
 
-=======
-        "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from." 
-
-        
->>>>>>> main
-=======
-        "Ron stops playing. He wasn't wearing a headset and is now wondering where the sound came from." 
-
-        
->>>>>>> main
         r "Hello? Who said that?"
 
         jump choices_done
@@ -157,22 +119,15 @@ label start:
     label choices_done:
 
         "Ron stands up."
-<<<<<<< HEAD
-=======
 
         show ron body dark:
             xpos 0.4
             ypos 0.2
             zoom 0.35
         with Dissolve(.3)
-            
-            
->>>>>>> main
 
-        show ron body:
-            zoom .1
-            xalign 0.75
-            yalign 0.3
+
+
 
         r "Seriously, who said that? Come out!"
 
@@ -190,18 +145,6 @@ label start:
         $ menu_flag = True
 
         #"Ron kutter av seg armen og Begynner å skrike som en galning. Men spilleren får muligheten til å klikke på armen hans med musepilen så den regenererer."
-<<<<<<< HEAD
-        
-        r "Who are you? And where are you?"
-
-<<<<<<< HEAD
-        r "Who are you? And where are you?"
-
-=======
->>>>>>> main
-        menu:
-
-=======
         show ron body mad dark:
             xpos 0.4
             ypos 0.2
@@ -211,7 +154,6 @@ label start:
 
         menu:
 
->>>>>>> main
             "[name]":
                 jump choice2_11
             "God":
@@ -221,73 +163,67 @@ label start:
 
         label choice2_11:
             r "Uh-- ok. Why can't I see you? And why can I hear you in my head?! Are you some kind of telepathic being?"
-<<<<<<< HEAD
-=======
             show ron smile dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
->>>>>>> main
             r "No, that's not real... I must be tired. I should probably go to bed early today."
             jump choice2_done
 
         label choice2_12:
-<<<<<<< HEAD
-            r "What the fuck? No, that can't be real. I must've stayed up too long. I should probably rest for a bit. There's no one there."
-=======
             r "What the fuck? No, that can't be real. I must've stayed up too long. I should probably rest for a bit. There's no one here."
->>>>>>> main
             jump choice2_done
         label choice2_13:
             r "That's really fucking creepy. Seriously, come out! I'm armed!"
             "Ron looks desperately around the room, clearly scared and shaken up. He's obviously not wielding any form of weapon."
-<<<<<<< HEAD
-            scene ron room dark:
-                zoom 1.65
-=======
             scene ron_room_dark:
                 zoom 0.67
-            show ron body dark:
+            show ron shocked blue dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room:
                 zoom 0.67
-            show ron body:
+            show ron shocked blue:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room_dark:
                 zoom 0.67
-            show ron body dark:
+            show ron shocked blue dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room:
                 zoom 0.67
-            show ron body:
+            show ron shocked blue:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room_dark:
                 zoom 0.67
-            show ron body dark:
+            show ron shocked blue dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
-            
 
-            
->>>>>>> main
+
+
             g "Why do you lie to me, Ron?"
             r "What? How did you know..?"
             menu:
                 "{sc=5}{font=FOT-PopJoyStd-B.otf}Punish Ron for his {font=FOT-PopJoyStd-B.otf}disobedience.{/sc}":
+                    show ron heart dark:
+                        xpos 0.4
+                        ypos 0.2
+                        zoom 0.35
                     "Ron died."
+                    play sound "audio/smack.ogg"
+                    scene black
                     "Game over."
             return
 
@@ -315,16 +251,9 @@ label start:
         jump choice2_done
 
     label choice2_done:
-<<<<<<< HEAD
-
-    "Ron lies down"
-    r "Ok, ok, it's probably nothing. I'm just being tired, that's all"
-=======
         hide ron smile dark
-        with dissolve(.5)
     "Ron lies down"
     r "Ok, ok, it's probably nothing. I'm just tired, that's all."
->>>>>>> main
 
     menu:
 
@@ -343,17 +272,6 @@ label start:
             "Destroy his vase":
                 "Ron sits up. He stares frightened towards the now broken vase."
                 r "{i}fuck, what was that{/i}"
-<<<<<<< HEAD
-                #r "What the fuck? I wasn't anywhere near that."
-            "Change his \"art\"":
-                "temp"
-                #block of code to run
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> main
-=======
                 #talk some more
                 jump choice3_done
             "Change his \"art\"":
@@ -362,12 +280,11 @@ label start:
                 r "{i}What the fuck? I must be getting delusional{/i}"
                 g "You're not delusional."
                 r "Yes.. of course I am. This doesn't make any sense!"
-                
+
                 #talk some more
 
                 jump choice3_done
 
->>>>>>> main
 
     jump choice3_done
 
@@ -380,36 +297,6 @@ label start:
     g "How can you be so certain about that?"
     r "I mean.. it just doesn't make any sense. That some kind of telepathic or omnipotent creature tries to contact me."
     r "And now I'm talking to myself... I need to sleep."
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> main
-    menu:
-        "Ron doesn't believe you"
-        "Convince him by doing something to his room.":
-            jump choice3_yes
-        "Keep talking to him.":
-            menu:
-                "I guess that's true.. still, I believe I am real. How could I convince you?":
-                    ""
-                    #block of code to run
-                "Hey, Ron? Are you asleep?":
-                    "Ron is pretending he can't hear you."
-                    g "Ron?"
-                    g "Hey, Roooon! Why are you ignoring me?"
-                    r "Leave me alone!"
-                    #block of code to run
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> main
-
-
-=======
->>>>>>> main
 
     menu:
         "Ron doesn't believe you"
@@ -455,10 +342,6 @@ label start:
                                     jump choice0
                                 "Back to previous choice":
                                     jump realChoice
-                                
-
-
-
 
     jump choice3_done
 
@@ -482,13 +365,45 @@ label start:
                     menu:
                         "With violence":
                             "Ron's facial expression immideately changes. He stays quiet for a while."
-                            r "Ok. You got it."
-                            "Ron opens the door and leaves."
+                            r "Ok. If that is what you want."
+                            "Ron sighes"
+                            "Ron opens the door and takes one final look at his room before he leaves."
                             "Some times passes."
                             "It's now midnight. Ron enters, covered in blood."
+                            "Ron walks slowly towards the bed, forgetting to close the door behind him"
+                            "Some times passes"
                             r "Hello? Are you here?"
                             g "Yes."
-                            r "Oh, thank- you, I guess. I couldn't hear you outside. Anyways-"
+                            "Ron opens his mouth, but quickly closes it"
+                            "..."
+                            "......"
+                            "..."
+                            "....."
+                            r "It was {atl=-#,#,fade_in_text~1.0}horrible{/atl}"
+                            r "{sc=3}The screams{/sc}"
+                            r "{sc=7}I have never heard something so horrific{/sc}"
+                            r "They begged"
+                            r "They cried for their life"
+                            "His hands began to shake as he covered his face"
+                            "You can hear him mumble something"
+                            r "{atl=-#,#,fade_in_text~1.0}{size=20}why?{/size}{/atl}"
+                            g "What?"
+                            r "What was the purpose of this?"
+                            r "{sc}{b}{i}{font=FOT-PopJoyStd-B.otf}WHAT POSSIBLE REASON COULD THERE BE??{/i}{/b}{/sc}"
+                            menu:
+                                "Everything happens for a reason":
+                                    r "so tell me!"
+                                    r "Why did they have to die"
+
+
+
+
+
+                                "{chaos}EN{/chaos}T{chaos}ER{/chaos}T{chaos}AINMEN{/chaos}T":
+                                    "Ron can't even phantom what you just said"
+                                    ""
+
+
                         "With love":
                             "Ron's face lights up."
                             r "Alright. You got it!"
@@ -571,8 +486,8 @@ label start:
 
         "Neither":
             jump choice6_3
-                
-                
+
+
 
     label choice6_1:
 
@@ -607,10 +522,10 @@ label start:
         jump choices_done6
 
     label choices_done6:
-        
 
-        r   "" 
-        
+
+        r   ""
+
         menu:
 
             "":
@@ -623,8 +538,8 @@ label start:
 
         $ menu_flag = True
 
-        r   "" 
-        r   "" 
+        r   ""
+        r   ""
         r   ""
 
 
@@ -634,9 +549,9 @@ label start:
     label choice7_two:
 
         $ menu_flag = False
-        
-        r   "" 
-        r   "" 
+
+        r   ""
+        r   ""
         r   ""
         r   ""
         r   ""
@@ -657,14 +572,14 @@ label start:
 
         "":
             jump choice8_three
-                
-                
+
+
 
     label choice8_one:
 
         $ menu_flag = True
 
-        r   "" 
+        r   ""
 
 
     jump choice8_done
@@ -673,7 +588,7 @@ label start:
 
         $ menu_flag = False
 
-        r   "" 
+        r   ""
 
         ""
 
@@ -683,7 +598,7 @@ label start:
 
         $ menu_flag = False
 
-        r   "" 
+        r   ""
 
         ""
 
@@ -698,23 +613,23 @@ label start:
 
             "":
                 jump choice9_two
-                
+
 
     label choice9_one:
 
         $ menu_flag = True
 
-        r   "" 
+        r   ""
 
         ""
 
     jump choice9_done
-    
+
     label choice9_two:
 
         $ menu_flag = False
 
-        r   "" 
+        r   ""
 
         ""
 

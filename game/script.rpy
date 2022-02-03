@@ -486,10 +486,13 @@ label start:
                             "Ron opens the door and leaves."
                             "Some times passes."
                             "It's now midnight. Ron enters, covered in blood."
+                            r "Hello? Are you here?"
+                            g "Yes."
+                            r "Oh, thank- you, I guess. I couldn't hear you outside. Anyways-"
                         "With love":
                             "Ron's face lights up."
                             r "Alright. You got it!"
-                            
+
                 "No! Don't tell anyone that I exist.":
                     "temp"
                     # This branch can lead to a better life for Ron. He will try to better himself with your choices, as he tries to keep you secret

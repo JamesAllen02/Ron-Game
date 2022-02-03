@@ -21,16 +21,6 @@ image ron smile dark = im.MatrixColor(
     im.matrix.tint(0.45, 0.45, 0.75)
     *im.matrix.brightness(-0.07))
 
-image ron shocked blue dark = im.MatrixColor(
-    "ron shocked blue.png",
-    im.matrix.tint(0.45, 0.45, 0.75)
-    *im.matrix.brightness(-0.07))
-
-image ron heart dark = im.MatrixColor(
-    "ron heart.png",
-    im.matrix.tint(0.45, 0.45, 0.75)
-    *im.matrix.brightness(-0.07))
-
 
 # The game starts here.
 
@@ -44,18 +34,14 @@ label start:
         zoom 0.67
 
 
-
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
 
-    stop music
-    play sound "audio/weeps.mp3"
 
     python:
         size = ["obese", "chunky", "tubby", "normal", "anoreksia", "thin", "muscular"]
-
 
     python:
         name = renpy.input("What is your name? \n", length=32)
@@ -63,6 +49,7 @@ label start:
 
         if not name:
             name = "Sebastian"
+
 
         g = Character(name, color="#ffffff")
 
@@ -178,35 +165,35 @@ label start:
             "Ron looks desperately around the room, clearly scared and shaken up. He's obviously not wielding any form of weapon."
             scene ron_room_dark:
                 zoom 0.67
-            show ron shocked blue dark:
+            show ron body dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room:
                 zoom 0.67
-            show ron shocked blue:
+            show ron body:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room_dark:
                 zoom 0.67
-            show ron shocked blue dark:
+            show ron body dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room:
                 zoom 0.67
-            show ron shocked blue:
+            show ron body:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room_dark:
                 zoom 0.67
-            show ron shocked blue dark:
+            show ron body dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
@@ -217,13 +204,7 @@ label start:
             r "What? How did you know..?"
             menu:
                 "{sc=5}{font=FOT-PopJoyStd-B.otf}Punish Ron for his {font=FOT-PopJoyStd-B.otf}disobedience.{/sc}":
-                    show ron heart dark:
-                        xpos 0.4
-                        ypos 0.2
-                        zoom 0.35
                     "Ron died."
-                    play sound "audio/smack.ogg"
-                    scene black
                     "Game over."
             return
 
@@ -252,6 +233,7 @@ label start:
 
     label choice2_done:
         hide ron smile dark
+        with dissolve(.5)
     "Ron lies down"
     r "Ok, ok, it's probably nothing. I'm just tired, that's all."
 
@@ -343,6 +325,10 @@ label start:
                                 "Back to previous choice":
                                     jump realChoice
 
+
+
+
+
     jump choice3_done
 
     label choice3_done:
@@ -365,45 +351,13 @@ label start:
                     menu:
                         "With violence":
                             "Ron's facial expression immideately changes. He stays quiet for a while."
-                            r "Ok. If that is what you want."
-                            "Ron sighes"
-                            "Ron opens the door and takes one final look at his room before he leaves."
+                            r "Ok. You got it."
+                            "Ron opens the door and leaves."
                             "Some times passes."
                             "It's now midnight. Ron enters, covered in blood."
-                            "Ron walks slowly towards the bed, forgetting to close the door behind him"
-                            "Some times passes"
                             r "Hello? Are you here?"
                             g "Yes."
-                            "Ron opens his mouth, but quickly closes it"
-                            "..."
-                            "......"
-                            "..."
-                            "....."
-                            r "It was {atl=-#,#,fade_in_text~1.0}horrible{/atl}"
-                            r "{sc=3}The screams{/sc}"
-                            r "{sc=7}I have never heard something so horrific{/sc}"
-                            r "They begged"
-                            r "They cried for their life"
-                            "His hands began to shake as he covered his face"
-                            "You can hear him mumble something"
-                            r "{atl=-#,#,fade_in_text~1.0}{size=20}why?{/size}{/atl}"
-                            g "What?"
-                            r "What was the purpose of this?"
-                            r "{sc}{b}{i}{font=FOT-PopJoyStd-B.otf}WHAT POSSIBLE REASON COULD THERE BE??{/i}{/b}{/sc}"
-                            menu:
-                                "Everything happens for a reason":
-                                    r "so tell me!"
-                                    r "Why did they have to die"
-
-
-
-
-
-                                "{chaos}EN{/chaos}T{chaos}ER{/chaos}T{chaos}AINMEN{/chaos}T":
-                                    "Ron can't even phantom what you just said"
-                                    ""
-
-
+                            r "Oh, thank- you, I guess. I couldn't hear you outside. Anyways-"
                         "With love":
                             "Ron's face lights up."
                             r "Alright. You got it!"

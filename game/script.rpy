@@ -21,6 +21,26 @@ image ron smile dark = im.MatrixColor(
     im.matrix.tint(0.45, 0.45, 0.75)
     *im.matrix.brightness(-0.07))
 
+image ron shocked blue dark = im.MatrixColor(
+    "ron shocked blue.png",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image ron heart dark = im.MatrixColor(
+    "ron heart.png",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image room dark = im.MatrixColor(
+    "ron_room.jpg",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+image vase broken dark = im.MatrixColor(
+    "vase broken.jpg",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
 
 # The game starts here.
 
@@ -30,7 +50,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene ron_room_dark:
+    scene room dark:
         zoom 0.67
 
 
@@ -39,9 +59,12 @@ label start:
     # directory.
 
 
+    stop music
+    play music "audio/weeps.mp3"
 
     python:
         size = ["obese", "chunky", "tubby", "normal", "anoreksia", "thin", "muscular"]
+
 
     python:
         name = renpy.input("What is your name? \n", length=32)
@@ -49,7 +72,6 @@ label start:
 
         if not name:
             name = "Sebastian"
-
 
         g = Character(name, color="#ffffff")
 
@@ -139,7 +161,7 @@ label start:
 
         r "Who are you? And where are you?"
 
-        menu:
+        menu whatYouAre:
 
             "[name]":
                 jump choice2_11
@@ -163,37 +185,37 @@ label start:
         label choice2_13:
             r "That's really fucking creepy. Seriously, come out! I'm armed!"
             "Ron looks desperately around the room, clearly scared and shaken up. He's obviously not wielding any form of weapon."
-            scene ron_room_dark:
+            scene room dark:
                 zoom 0.67
-            show ron body dark:
+            show ron shocked blue dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room:
                 zoom 0.67
-            show ron body:
+            show ron shocked blue:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
-            scene ron_room_dark:
+            scene room dark:
                 zoom 0.67
-            show ron body dark:
+            show ron shocked blue dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
             scene ron_room:
                 zoom 0.67
-            show ron body:
+            show ron shocked blue:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
             pause 0.5
-            scene ron_room_dark:
+            scene room dark:
                 zoom 0.67
-            show ron body dark:
+            show ron shocked blue dark:
                 xpos 0.4
                 ypos 0.2
                 zoom 0.35
@@ -204,8 +226,27 @@ label start:
             r "What? How did you know..?"
             menu:
                 "{sc=5}{font=FOT-PopJoyStd-B.otf}Punish Ron for his {font=FOT-PopJoyStd-B.otf}disobedience.{/sc}":
+                    show ron heart dark:
+                        xpos 0.4
+                        ypos 0.2
+                        zoom 0.35
                     "Ron died."
+                    play sound "audio/smack.ogg"
+                    scene black
                     "Game over."
+                    menu:
+                        "Start over":
+                            hide black
+                            scene room dark:
+                                zoom 0.67
+                            jump choice0
+                        "Back to previous choice":
+                            hide black
+                            scene room dark:
+                                zoom 0.67
+                            jump whatYouAre
+                        "Quit":
+                            $ renpy.quit()
             return
 
         jump choice2_done
@@ -233,7 +274,6 @@ label start:
 
     label choice2_done:
         hide ron smile dark
-        with dissolve(.5)
     "Ron lies down"
     r "Ok, ok, it's probably nothing. I'm just tired, that's all."
 
@@ -252,8 +292,30 @@ label start:
         menu:
             "What do you do?"
             "Destroy his vase":
+                scene vase broken dark:
+                    zoom 0.67
                 "Ron sits up. He stares frightened towards the now broken vase."
+                show ron shocked blue dark:
+                    xpos 0.4
+                    ypos 0.2
+                    zoom 0.35
                 r "{i}fuck, what was that{/i}"
+                g "I did that. Because I can move stuff with my mind."
+                r "Oh, you can do that? I guess you're real, then."
+                g "Still not convinced?"
+                r "Yes, I just said I am!"
+                g "Well, I'll prove it by teleporting you to london."
+                scene bestroom:
+                    zoom 1.6
+                    ypos 0
+                    xpos 0
+                r "What? Jesus, I said I believe you! Why Are we here? Also, how would anyone know that this is London?! We're in a room without windows."
+                g "Oh... right. Umm, nevermind, then."
+                g "By the way, do you know the piano?"
+                r "No.."
+                g "Oh, ok. I'll just bring us back, then."
+                scene room dark:
+                    zoom 0.67
                 #talk some more
                 jump choice3_done
             "Change his \"art\"":
@@ -324,10 +386,8 @@ label start:
                                     jump choice0
                                 "Back to previous choice":
                                     jump realChoice
-
-
-
-
+                                "Quit":
+                                    $ renpy.quit()
 
     jump choice3_done
 
@@ -351,13 +411,67 @@ label start:
                     menu:
                         "With violence":
                             "Ron's facial expression immideately changes. He stays quiet for a while."
-                            r "Ok. You got it."
-                            "Ron opens the door and leaves."
+                            r "Ok. If that is what you want."
+                            "Ron sighes"
+                            "Ron opens the door and takes one final look at his room before he leaves."
                             "Some times passes."
                             "It's now midnight. Ron enters, covered in blood."
+                            "Ron walks slowly towards the bed, forgetting to close the door behind him"
+                            "Some times passes"
                             r "Hello? Are you here?"
                             g "Yes."
-                            r "Oh, thank- you, I guess. I couldn't hear you outside. Anyways-"
+                            "Ron opens his mouth, but quickly closes it"
+                            "..."
+                            "......"
+                            "..."
+                            "....."
+                            r "It was {atl=-#,#,fade_in_text~1.0}horrible{/atl}"
+                            r "{sc=3}That was not what I expected at all!{/sc}"
+                            r "{sc=7}I figured I'd just make some protests, knowing God was on my side, but this...{/sc}"
+                            "His hands began to shake as he covered his face"
+                            "You can hear him mumble something"
+                            r "{atl=-#,#,fade_in_text~1.0}{size=20}why?{/size}{/atl}"
+                            g "What?"
+                            r "What was the purpose of this?"
+                            r "{sc}{b}{i}{font=FOT-PopJoyStd-B.otf}WHAT POSSIBLE REASON COULD THERE BE??{/i}{/b}{/sc}"
+                            menu:
+                                "Everything happens for a reason":
+                                    r "so tell me!"
+                                    r "Why did they have to die"
+                                    g "What do you mean? Who did you kill?"
+                                    "Ron looks up in anger"
+                                    r "The people that you told me to!"
+                                    g "I didn't necessarily say-"
+                                    r "But you wanted me to defend your name with violence! I murdered anyone who didn't believe!"
+                                    g "Oh, that's good, then. Good job. Don't worry, you'll be greatly rewarded for this. And the people who died will get their rightful afterlife."
+                                    r "Awesome! I guess it was worth it. So what now?"
+                                    menu:
+                                        "Go to bed":
+                                            r "Alright. Will I see you tomorrow?"
+                                            menu sleepyTime:
+                                                "Yes":
+                                                    r "Awesome. Get the lights for me, would ya?"
+                                                "No":
+                                                    r "What? I'm sorry, but I just killed so many for you.. the police might find out where I live! You're not just going to leave me.."
+                                                    "Ron keeps talking while you leave."
+                                                    "Game Over."
+                                                    menu:
+                                                        "Start over":
+                                                            jump choice0
+                                                        "Back to previous choice":
+                                                            jump sleepyTime
+                                                        "Quit":
+                                                            $ renpy.quit()
+
+
+
+                                        "Kill yourself":
+                                            ""
+                                "{chaos}EN{/chaos}T{chaos}ER{/chaos}T{chaos}AINMEN{/chaos}T":
+                                    "Ron can't even phantom what you just said"
+                                    ""
+
+
                         "With love":
                             "Ron's face lights up."
                             r "Alright. You got it!"

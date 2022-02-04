@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -41,6 +41,14 @@ image vase broken dark = im.MatrixColor(
     im.matrix.tint(0.45, 0.45, 0.75)
     *im.matrix.brightness(-0.07))
 
+<<<<<<< Updated upstream
+=======
+image ron weird dark = im.MatrixColor(
+    "ron weird smile.png",
+    im.matrix.tint(0.45, 0.45, 0.75)
+    *im.matrix.brightness(-0.07))
+
+>>>>>>> Stashed changes
 
 # The game starts here.
 
@@ -301,6 +309,13 @@ label start:
                     zoom 0.35
                 r "{i}fuck, what was that{/i}"
                 g "I did that. Because I can move stuff with my mind."
+<<<<<<< Updated upstream
+=======
+                show ron weird dark:
+                    xpos 0.4
+                    ypos 0.2
+                    zoom 0.35
+>>>>>>> Stashed changes
                 r "Oh, you can do that? I guess you're real, then."
                 g "Still not convinced?"
                 r "Yes, I just said I am!"
@@ -451,6 +466,13 @@ label start:
                                             menu sleepyTime:
                                                 "Yes":
                                                     r "Awesome. Get the lights for me, would ya?"
+<<<<<<< Updated upstream
+=======
+                                                    "You use your telepathic abilities to turn the lights off"
+                                                    scene black with fade
+                                                    "Day 1 Complete"
+                                                    return
+>>>>>>> Stashed changes
                                                 "No":
                                                     r "What? I'm sorry, but I just killed so many for you.. the police might find out where I live! You're not just going to leave me.."
                                                     "Ron keeps talking while you leave."
